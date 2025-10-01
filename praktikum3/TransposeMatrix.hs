@@ -9,8 +9,8 @@ konsLo l s = l : s
 -- transposeMatrix([[1,2,3],[4,5,6],[7,8,9]]) menghasilkan [[1,4,7],[2,5,8],[3,6,9]]
 
 -- Hint : Gunakan map untuk menerapkan sebuah fungsi pada setiap elemen list
--- map head m → Mengambil elemen pertama dari setiap list dalam m lalu menyimpannya dalam sebuah list
--- map tail m → Mengambil semua elemen kecuali yang pertama dari setiap list dalam m lalu menyimpannya dalam sebuah list
+-- map head m  Mengambil elemen pertama dari setiap list dalam m lalu menyimpannya dalam sebuah list
+-- map tail m  Mengambil semua elemen kecuali yang pertama dari setiap list dalam m lalu menyimpannya dalam sebuah list
 -- Example:
 -- m = [[1,2,3],[4,5,6],[7,8,9]]
 -- map head m = [1,4,7]
@@ -18,6 +18,6 @@ konsLo l s = l : s
 
 transposeMatrix :: [[Int]] -> [[Int]]
 transposeMatrix [] = []
-transposeMatrix [[] : _ ] -> []
-transposeMatrix a = map head m ++ transposeMatrix (map tail m)
+transposeMatrix ([] : _) = []
+transposeMatrix a = (map head a) : (transposeMatrix (map tail a))
 -- TODO
