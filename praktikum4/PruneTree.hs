@@ -27,9 +27,7 @@ isTreeEmpty Empty = True
 isTreeEmpty (Node a l r) = False
 isOneElmt :: (BinTree Int) -> Bool
 {- isOneElmt p true jika p adalah //A\\ -}
-isOneElmt p =
-  not (isTreeEmpty p) &&
-isTreeEmpty (left p) && isTreeEmpty (right p)
+isOneElmt p = not (isTreeEmpty p) && isTreeEmpty (left p) && isTreeEmpty (right p)
 
 isUnerLeft :: (BinTree Int) -> Bool
 {- isUnerLeft p true jika p hanya mengandung sub pohon kiri, P adalah //L A\\ -}
@@ -43,20 +41,17 @@ isBiner p = not (isTreeEmpty p) && not (isTreeEmpty (left p)) && not (isTreeEmpt
 
 isExistLeft :: (BinTree Int) -> Bool
 {- isExistLeft p true jika p mengandung sub pohon kiri -}
-isExistLeft p =
-not (isTreeEmpty p) && not (isTreeEmpty (left p))
+isExistLeft p = not (isTreeEmpty p) && not (isTreeEmpty (left p))
 isExistRight :: (BinTree Int) -> Bool
 {- isExistRight p true jika p mengandung sub pohon kanan -}
-isExistRight p =
-not (isTreeEmpty p) && not (isTreeEmpty (right p))
+isExistRight p = not (isTreeEmpty p) && not (isTreeEmpty (right p))
 
 -- Definisi dan Spesifikasi Utama
 pruneTree :: BinTree Int -> Int -> BinTree Int
 pruneTree Empty _ = Empty
 pruneTree _ d | d <= 0 = Empty
-pruneTree (Node a _ _) 1 = Node a Empty Empty
-pruneTree (Node a l r) d =
-  Node a (pruneTree l (d - 1)) (pruneTree r (d - 1))
+pruneTree (Node a _ _) 1 = (Node a Empty Empty)
+pruneTree (Node a l r) d = (Node a (pruneTree l (d - 1)) (pruneTree r (d - 1)))
 {- pruneTree p d menghasilkan pohon p yang dipangkas sehingga 
    kedalaman pohon tidak lebih dari d.
    Kedalaman akar adalah 1.
