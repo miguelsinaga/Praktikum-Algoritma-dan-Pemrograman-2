@@ -94,7 +94,6 @@ depth :: BinTree Int -> Int
 depth Empty = 0
 depth (Node _ l r) = 1 + max (depth l) (depth r)
 
--- Fungsi pembantu: menjumlahkan semua node di level tertentu
 sumAtLevel :: BinTree Int -> Int -> Int
 sumAtLevel Empty _ = 0
 sumAtLevel (Node val l r) level
@@ -102,8 +101,7 @@ sumAtLevel (Node val l r) level
   | level > 1  = sumAtLevel l (level - 1) + sumAtLevel r (level - 1)
   | otherwise  = 0
 
--- ==============================
--- REALISASI UTAMA
+
 sumDeepestLeaves :: BinTree Int -> Int
 sumDeepestLeaves Empty = 0
 sumDeepestLeaves tree = sumAtLevel tree (depth tree)
