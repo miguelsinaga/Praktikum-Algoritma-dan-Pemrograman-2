@@ -1,0 +1,24 @@
+Program frekuensi kata pertama
+
+
+KAMUS
+    USE Mesin1
+    katapertama : kata
+    count : integer
+
+ALGORITMA
+
+    start
+    startkata
+    if (endkata) then
+        output("")
+    else 
+        katapertama = currentKata
+        advkata
+        count = 1
+        while(not endkata) do
+            if katapertama=currentKata then
+                count = count + 1
+            advkata
+
+    
