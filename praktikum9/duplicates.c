@@ -1,8 +1,7 @@
-
-#include "list.h"
 #include <stdio.h>
-List deleteDuplicates(List l) {
-    
+#include <stdlib.h>
+#include "list.h"
+List removeDuplicates(List l) {
     if (isEmpty(l) || isOneElmt(l)) {
         return copy(l);
     }
@@ -13,8 +12,11 @@ List deleteDuplicates(List l) {
         while (!isEmpty(rest) && head(rest) == x) {
             rest = tail(rest);
         }
-        return deleteDuplicates(rest);
+
+        return removeDuplicates(rest);  
     } else {
-        return konso(head(l), deleteDuplicates(tail(l)));
+        return konso(head(l), removeDuplicates(tail(l)));
     }
 }
+
+
